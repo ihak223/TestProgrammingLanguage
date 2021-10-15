@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -10,11 +11,6 @@ int strtoi(string str)
   stringstream ss(str);
   ss >> a;
   return a;
-}
-
-class Pointer
-{
-
 }
 
 class Program
@@ -27,52 +23,46 @@ public:
     int8_t a;
     if (addr[0] == '*')
     {
-      b = addr.substr(1);
+      string b = addr.substr(1);
       a = strtoi(b);
       a = memory[a];
     } else if (addr[0] == '_') {
-      
+      a = strtoi(addr.substr(1));      
     }
+    return a;
   }
 };
 
 
 
 int main() {
-  Program program = Program();
-  string raw = "ASIGN _0 69;";
-  string parsed[64];
-  string current;
-  int i = 0;
-  int k = 0;
-
-  while (i < raw.length()+1)
+  string fileinp;
+  char b;
+  ifstream file;
+  file.open("test.test");
+  if (file.is_open())
   {
-    if (raw[i] == ' ') 
+    while (file.good())
     {
-      parsed[k] = current;
-      current = "";
-      k++;
-    } else {
-      current = current+raw[i];
+      b = file.get();
+      fileinp = fileinp + b;
     }
-    i++;
+  } else {
+    cout << "ERROR, Could Not Open File" << endl;
+    
   }
-  cout << "\rFinished Parsing :)";
-  if (parsed[0] == "ASIGN") {
-    cout << "\rDetected Asign ...      ";
-    if ((parsed[1])[0] == '_')
+  cout << fileinp << endl;
+  int a = 0;
+  string s;
+  while (a < fileinp.length())
+  {
+    cout << fileinp[a];
+    if (fileinp[a] != '\n')
     {
-      cout << "\rAsigning to Cashe ...      ";
-      int a = strtoi(parsed[1].substr(1));
-      program.cashe[a] = strtoi(parsed[2]);
-    } 
-    else 
-    {
-      cout << "\rAsigning to Memory ...      ";
-      
+      s = s + 
     }
+    a++;
   }
-  cout << endl << program.cashe[0] << endl;
+  cout << fileinp << endl;
   return 0;
 }
