@@ -13,6 +13,20 @@ int strtoi(string str)
   return a;
 }
 
+string r(string str, char c)
+{
+  string a = "";
+  int i = 0;
+  while (i < str.length)
+  {
+    if (str[i] != c)
+    {
+      a = a + str[i];
+    }
+  }
+  return a;
+}
+
 class Program
 {
 public:
@@ -57,12 +71,12 @@ int main() {
   while (a < fileinp.length())
   {
     cout << fileinp[a];
-    if (fileinp[a] != '\n')
-    {
-      s = s + 
-    }
+    s = s + fileinp[a];
     a++;
   }
+  s = r(s, '\n');
+  string lines[256];
+  
   cout << fileinp << endl;
   return 0;
 }
