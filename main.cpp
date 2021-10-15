@@ -31,6 +31,39 @@ class Program
 {
 public:
   int8_t memory[2048];
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+int strtoi(string str)
+{
+  int a;
+  stringstream ss(str);
+  ss >> a;
+  return a;
+}
+
+string r(string str, char c)
+{
+  string a = "";
+  int i = 0;
+  while (i < str.length())
+  {
+    if (str[i] != c)
+    {
+      a = a + str[i];
+    }
+  }
+  return a;
+}
+
+class Program
+{
+public:
+  int8_t memory[2048];
   int8_t cashe[256];
   int8_t address_get(string addr)
   {
@@ -78,5 +111,14 @@ int main() {
   string lines[256];
   
   cout << fileinp << endl;
-  return 0;
+  s = r(s, '\n');
+  int i = 0;
+  while (i < s.length())
+  {
+    string lines[256];
+  
+    cout << fileinp << endl;
+
+  }
+  return 69;
 }
