@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -110,9 +109,26 @@ int main()
     i++;
   }
   i = 0;
-  while (0 < n->length())
+  
+  int u = 0;
+  bool ended = false;
+  while (!ended)
   {
-    
+    string f[32];
+    string e = n[i];
+    string j = "";
+    k = 0;
+    u = 0;
+    while (k < e.length())
+    {
+      if (e[k] == ' ')
+      {
+        
+        u++;
+      }
+      k++;
+    }
+    i++;
   }
 
   return 69;
