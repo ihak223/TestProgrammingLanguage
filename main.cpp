@@ -6,6 +6,9 @@
 
 using namespace std;
 
+// Functions
+
+// String to int
 int strtoi(string str)
 {
   int a;
@@ -14,6 +17,7 @@ int strtoi(string str)
   return a;
 }
 
+// Replace
 string r(string str, char c)
 {
   string a = "";
@@ -28,6 +32,7 @@ string r(string str, char c)
   return a;
 }
 
+// Open File
 string open(string fname)
 {
   string fileinp;
@@ -51,6 +56,11 @@ string open(string fname)
   return fileinp;
 }
 
+
+
+
+
+
 class Program
 {
 public:
@@ -66,6 +76,8 @@ public:
       a = memory[a];
     } else if (addr[0] == '_') {
       a = strtoi(addr.substr(1));      
+    } else {
+      a = strtoi(addr);
     }
     return a;
   }
@@ -75,6 +87,9 @@ public:
 
 int main() 
 {
+
+  Program programs[4];
+
   string m = open("test.test");
   string n[512];
   string o = "";
@@ -94,7 +109,11 @@ int main()
     }
     i++;
   }
-  cout << n[2] << endl;
+  i = 0;
+  while (0 < n->length())
+  {
+    
+  }
 
   return 69;
 }

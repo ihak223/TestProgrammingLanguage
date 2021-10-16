@@ -1,0 +1,25 @@
+Program program = Program();
+  string raw = "ASIGN _0 69;";
+  string parsed[64];
+  string current;
+  int i = 0;
+  int k = 0;
+
+  while (i < raw.length()+1)
+  {
+    if (raw[i] == ' ') 
+    {
+      parsed[k] = current;
+      current = "";
+      k++;
+    } else {
+      current = current+raw[i];
+    }
+    i++;
+  }
+  cout << "\rFinished Parsing :)";
+  if (parsed[0] == "ASIGN") {
+    cout << "\rDetected Asign ...      ";
+    program.memory[program.address_get(parsed[1])] = program.address_get(parsed[2]);
+  }
+  cout << endl << program.cashe[0] << endl;
